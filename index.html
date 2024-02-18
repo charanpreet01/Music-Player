@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/6a2f18eda0.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="music-player">
+            <nav>
+                <div class="nav-icon">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </div>
+
+                <div class="nav-icon">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+
+            <img src="songs/cover.jpg" alt="" class="song-img">
+            <h1>Don't Look</h1>
+            <p>Karan Aujla</p>
+
+            <audio controls class="song">
+                <source src="songs/Dont Look.mp3" type="audio/mpeg">
+            </audio>
+            <input type="range" value="0" id="progress">
+
+            <div class="controls">
+                <div><i class="fa-solid fa-backward"></i></div>
+                <div><i class="fa-solid fa-play" class="playIcon"></i></div>
+                <div><i class="fa-solid fa-forward"></i></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>

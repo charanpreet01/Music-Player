@@ -1,10 +1,15 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.container{
+:root {
+    --bgcolor: #48cae4;
+    --color: #0077b6;
+}
+
+.container {
     width: 100%;
     height: 100vh;
     background-color: #333;
@@ -14,73 +19,73 @@
     flex-wrap: wrap;
 }
 
-.music-player{
+.music-player {
     width: 400px;
-    background-color: #ffe0e5;
+    background-color: var(--bgcolor);
     padding: 25px 35px;
     text-align: center;
 }
 
-nav{
+nav {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
-nav .nav-icon{
+nav .nav-icon {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     line-height: 40px;
     background-color: #fff;
-    color: #f53192;
-    box-shadow: 0 5px 10px rgba(255, 26, 26, 0.22);
+    color: var(--color);
+    box-shadow: 0 5px 10px rgba(45, 108, 224, 0.22);
 }
 
-.song-img{
+.song-img {
     width: 220px;
     border-radius: 50%;
     border: 8px solid #fff;
-    box-shadow: 0 10px 60px rgba(255, 26, 26, 0.22);
+    box-shadow: 0 10px 60px rgba(45, 108, 224, 0.22);
 }
 
-.music-player h1{
+.music-player h1 {
     font-size: 2.5rem;
-    color: #333;
+    color: #272626;
     margin-top: 25px;
 }
 
-.music-player p{
+.music-player p {
     font-size: 1.2rem;
-    color: #333;
+    color: #272626;
 }
 
-#progress{
+#progress {
     appearance: none;
     width: 100%;
     height: 6px;
     border-radius: 5px;
-    background-color: #f53192;
+    background-color: var(--color);
     cursor: pointer;
     margin: 30px 0;
 }
 
-#progress::-webkit-slider-thumb{
+#progress::-webkit-slider-thumb {
     appearance: none;
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: #f53192;
+    background-color: var(--color);
     border: 6px solid #fff;
-    box-shadow: 0 5px 5px rgba(255, 26, 26, 0.22);
+    box-shadow: 0 5px 5px rgba(45, 108, 224, 0.22);
 }
 
-.controls{
+.controls {
     display: flex;
     justify-content: center;
 }
 
-.controls div{
+.controls div {
     width: 50px;
     height: 50px;
     margin: 20px;
@@ -90,30 +95,32 @@ nav .nav-icon{
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    color: #f53192;
-    box-shadow: 0 10px 20px rgba(255, 26, 26, 0.22);
+    color: var(--color);
+    box-shadow: 0 10px 20px rgba(45, 108, 224, 0.42);
     cursor: pointer;
 }
 
-.controls div:nth-child(2){
+.controls div:nth-child(2) {
     transform: scale(1.5);
-    background-color: #f53192;
+    background-color: var(--color);
     color: #fff;
 }
 
-.song{
+.song {
     display: none;
 }
 
 @media (max-width:800px) {
-    .music-player{
+    .music-player {
         width: 100%;
         height: 100%;
     }
-    .song-img{
+
+    .song-img {
         margin-top: 30px;
     }
-    #progress{
+
+    #progress {
         margin-top: 50px;
     }
 }

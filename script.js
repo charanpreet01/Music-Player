@@ -39,6 +39,11 @@ progress.onchange = function () {
     song.currentTime = progress.value;
 }
 
+song.addEventListener("ended",()=>{
+    playIcon.classList.add("fa-play");
+    playIcon.classList.remove("fa-pause");
+})
+
 next.addEventListener("click", (e) => {
     songImg.src = "songs/cover1.jpg";
     song.src = "songs/Its My Time.mp3";

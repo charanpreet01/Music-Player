@@ -29,11 +29,9 @@ let playPause = () => {
 document.querySelector(".controls div:nth-child(2").addEventListener("click", playPause);
 
 // code for progress bar
-if (song.play()) {
-    setInterval(() => {
-        progress.value = song.currentTime;
-    }, 800);
-}
+song.addEventListener("timeupdate", () => {
+    progress.value = song.currentTime;
+});
 
 progress.onchange = function () {
     song.currentTime = progress.value;

@@ -7,7 +7,10 @@ let artist = document.querySelector(".artist");
 let songImg = document.querySelector(".song-img");
 let prev = document.querySelector("#prev");
 let next = document.querySelector("#next");
-let songSrc = document.querySelector(".songSrc");
+
+let navIcon=document.querySelector(".nav-icon");
+
+let trackIndex = 0;
 
 song.onloadedmetadata = function () {
     progress.max = song.duration;
@@ -37,27 +40,81 @@ progress.onchange = function () {
     song.currentTime = progress.value;
 }
 
-song.addEventListener("ended",()=>{
+song.addEventListener("ended", () => {
     playIcon.classList.add("fa-play");
     playIcon.classList.remove("fa-pause");
 })
 
+
+const musicList = [
+    {
+        artist: "Karan Aujla",
+        songName: "Don't Look",
+        songImg: "songs/cover.jpg",
+        songSrc: "songs/Dont Look.mp3",
+    },
+    {
+        artist: "Arjan Dhillon",
+        songName: "It's My Time",
+        songImg: "songs/cover1.jpg",
+        songSrc: "songs/Its My Time.mp3",
+    },
+    {
+        artist: "Diljit Dosanjh",
+        songName: "Mood",
+        songImg: "songs/cover2.jpg",
+        songSrc: "songs/Mood.mp3",
+    },
+    {
+        artist: "Amrinder Gill",
+        songName: "Family Di Member",
+        songImg: "songs/cover3.jpg",
+        songSrc: "songs/Family Di Member.mp3",
+    },
+    {
+        artist: "Deep Jandu",
+        songName: "Bombay To Punjab",
+        songImg: "songs/cover4.jpg",
+        songSrc: "songs/Bombay to Punjab.mp3",
+    },
+    {
+        artist: "Gippy Grewal",
+        songName: "Patt Lainge",
+        songImg: "songs/cover5.jpg",
+        songSrc: "songs/Patt Lainge.mp3",
+    },
+    {
+        artist: "Ammy Virk",
+        songName: "Chann Sitare",
+        songImg: "songs/cover6.jpg",
+        songSrc: "songs/Chann Sitare.mp3",
+    },
+    {
+        artist: "Sukha",
+        songName: "8 Asle",
+        songImg: "songs/cover7.jpg",
+        songSrc: "songs/8 Asle.mp3",
+    },
+]
+
 next.addEventListener("click", (e) => {
-    songImg.src = "songs/cover1.jpg";
-    song.src = "songs/Its My Time.mp3";
+    trackIndex++;
+    songImg.src = musicList[trackIndex].songImg;
+    song.src = musicList[trackIndex].songSrc;
     song.pause();
     playIcon.classList.add("fa-play");
     playIcon.classList.remove("fa-pause");
-    songName.innerText="It's My Time";
-    artist.innerText="Arjan Dhillon";
+    songName.innerText = musicList[trackIndex].songName;
+    artist.innerText = musicList[trackIndex].artist;
 })
 
 prev.addEventListener("click", (e) => {
-    songImg.src = "songs/cover.jpg";
-    song.src = "songs/Dont Look.mp3";
+    trackIndex--;
+    songImg.src = musicList[trackIndex].songImg;
+    song.src = musicList[trackIndex].songSrc;
     song.pause();
     playIcon.classList.add("fa-play");
     playIcon.classList.remove("fa-pause");
-    songName.innerText="Don't Look";
-    artist.innerText="Karan Aujla";
+    songName.innerText = musicList[trackIndex].songName;
+    artist.innerText = musicList[trackIndex].artist;
 })

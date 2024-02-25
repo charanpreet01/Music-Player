@@ -9,13 +9,29 @@ let prev = document.querySelector("#prev");
 let next = document.querySelector("#next");
 
 let navIcon = document.querySelector(".nav-icon");
-let reloadPage=document.querySelector("#reload-page");
+let reloadPage = document.querySelector("#reload-page");
 
 let trackIndex = 0;
 
 song.onloadedmetadata = function () {
     progress.max = song.duration;
     progress.value = song.currentTime;
+
+    updateDuration();
+}
+
+let updateDuration = () => {
+    const durationText = document.querySelector(".duration");
+    const minutes = Math.floor(song.duration / 60);
+    const seconds = Math.floor(song.duration % 60);
+    durationText.innerText = ` ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+}
+
+let updateCurrentTime = () => {
+    const currentTimeText = document.querySelector(".current-time");
+    const minutes = Math.floor(song.currentTime / 60);
+    const seconds = Math.floor(song.currentTime % 60);
+    currentTimeText.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
 
 let playPause = () => {
@@ -35,6 +51,8 @@ document.querySelector(".controls div:nth-child(2").addEventListener("click", pl
 // code for progress bar
 song.addEventListener("timeupdate", () => {
     progress.value = song.currentTime;
+
+    updateCurrentTime();
 });
 
 progress.onchange = function () {
@@ -155,6 +173,6 @@ prev.addEventListener("click", (e) => {
 })
 
 // add an event for reload page
-reloadPage.addEventListener("click",()=>{
+reloadPage.addEventListener("click", () => {
     location.reload();
 })

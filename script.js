@@ -46,7 +46,7 @@ let playPause = () => {
     }
 }
 
-document.querySelector(".controls div:nth-child(2").addEventListener("click", playPause);
+document.querySelector(".controls div:nth-child(2)").addEventListener("click", playPause);
 
 // code for progress bar
 song.addEventListener("timeupdate", () => {

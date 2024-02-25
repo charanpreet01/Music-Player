@@ -114,6 +114,7 @@ nav .nav-icon {
 .song-time{
     display: flex;
     justify-content: end;
+    margin-top: 7px;
 }
 
 @media (max-width:800px) {

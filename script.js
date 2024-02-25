@@ -8,7 +8,8 @@ let songImg = document.querySelector(".song-img");
 let prev = document.querySelector("#prev");
 let next = document.querySelector("#next");
 
-let navIcon=document.querySelector(".nav-icon");
+let navIcon = document.querySelector(".nav-icon");
+let reloadPage=document.querySelector("#reload-page");
 
 let trackIndex = 0;
 
@@ -95,26 +96,65 @@ const musicList = [
         songImg: "songs/cover7.jpg",
         songSrc: "songs/8 Asle.mp3",
     },
+    {
+        artist: "Amrit Maan",
+        songName: "Hype",
+        songImg: "songs/cover8.jpg",
+        songSrc: "songs/Hype.mp3",
+    },
+    {
+        artist: "Karan Aujla",
+        songName: "Ykwim",
+        songImg: "songs/cover9.jpg",
+        songSrc: "songs/Ykwim.mp3",
+    },
 ]
 
 next.addEventListener("click", (e) => {
-    trackIndex++;
-    songImg.src = musicList[trackIndex].songImg;
-    song.src = musicList[trackIndex].songSrc;
-    song.pause();
-    playIcon.classList.add("fa-play");
-    playIcon.classList.remove("fa-pause");
-    songName.innerText = musicList[trackIndex].songName;
-    artist.innerText = musicList[trackIndex].artist;
+    if (trackIndex === musicList.length - 1) {
+        trackIndex = 0;
+        songImg.src = musicList[trackIndex].songImg;
+        song.src = musicList[trackIndex].songSrc;
+        song.pause();
+        playIcon.classList.add("fa-play");
+        playIcon.classList.remove("fa-pause");
+        songName.innerText = musicList[trackIndex].songName;
+        artist.innerText = musicList[trackIndex].artist;
+    } else {
+        trackIndex++;
+        songImg.src = musicList[trackIndex].songImg;
+        song.src = musicList[trackIndex].songSrc;
+        song.pause();
+        playIcon.classList.add("fa-play");
+        playIcon.classList.remove("fa-pause");
+        songName.innerText = musicList[trackIndex].songName;
+        artist.innerText = musicList[trackIndex].artist;
+    }
 })
 
 prev.addEventListener("click", (e) => {
-    trackIndex--;
-    songImg.src = musicList[trackIndex].songImg;
-    song.src = musicList[trackIndex].songSrc;
-    song.pause();
-    playIcon.classList.add("fa-play");
-    playIcon.classList.remove("fa-pause");
-    songName.innerText = musicList[trackIndex].songName;
-    artist.innerText = musicList[trackIndex].artist;
+    if (trackIndex === 0) {
+        trackIndex = musicList.length - 1;
+        songImg.src = musicList[trackIndex].songImg;
+        song.src = musicList[trackIndex].songSrc;
+        song.pause();
+        playIcon.classList.add("fa-play");
+        playIcon.classList.remove("fa-pause");
+        songName.innerText = musicList[trackIndex].songName;
+        artist.innerText = musicList[trackIndex].artist;
+    } else {
+        trackIndex--;
+        songImg.src = musicList[trackIndex].songImg;
+        song.src = musicList[trackIndex].songSrc;
+        song.pause();
+        playIcon.classList.add("fa-play");
+        playIcon.classList.remove("fa-pause");
+        songName.innerText = musicList[trackIndex].songName;
+        artist.innerText = musicList[trackIndex].artist;
+    }
+})
+
+// add an event for reload page
+reloadPage.addEventListener("click",()=>{
+    location.reload();
 })

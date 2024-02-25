@@ -29,7 +29,7 @@
 nav {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 nav .nav-icon {
@@ -40,6 +40,7 @@ nav .nav-icon {
     background-color: #fff;
     color: var(--color);
     box-shadow: 0 5px 10px rgba(45, 108, 224, 0.22);
+    cursor: pointer;
 }
 
 .song-img {
@@ -116,11 +117,7 @@ nav .nav-icon {
         height: 100%;
     }
 
-    .song-img {
-        margin-top: 30px;
-    }
-
     #progress {
-        margin-top: 50px;
+        margin-top: 40px;
     }
 }

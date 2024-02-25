@@ -13,7 +13,7 @@
     <div class="container">
         <div class="music-player">
             <nav>
-                <div class="nav-icon">
+                <div class="nav-icon" id="reload-page" title="Reload Page">
                     <i class="fa-solid fa-chevron-left"></i>
                 </div>
 
@@ -27,14 +27,15 @@
             <p class="artist">Karan Aujla</p>
 
             <audio src="songs/Dont Look.mp3" controls class="song">
-                
+
             </audio>
             <input type="range" value="0" id="progress">
+            
 
             <div class="controls">
-                <div><i class="fa-solid fa-backward" id="prev"></i></div>
+                <div id="prev"><i class="fa-solid fa-backward"></i></div>
                 <div><i class="fa-solid fa-play" id="playIcon"></i></div>
-                <div><i class="fa-solid fa-forward" id="next"></i></div>
+                <div id="next"><i class="fa-solid fa-forward"></i></div>
             </div>
         </div>
     </div>
